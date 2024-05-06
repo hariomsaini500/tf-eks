@@ -52,7 +52,7 @@ data "aws_ecrpublic_authorization_token" "token" {
 locals {
   name            = "hss_infra"
   cluster_version = "1.29"
-  region          = "us-west-1"
+  region          = "eu-west-1"
 
   vpc_cidr = "10.0.0.0/16"
   azs = slice(data.aws_availability_zones.available.names, 0, min(length(data.aws_availability_zones.available.names), 3))
