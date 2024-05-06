@@ -4,15 +4,15 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "awseksbucket123"
+    bucket = "europebuckettestnew"
     key    = "prod/terraform.tfstate"
-    region = "us-east-1"
+    region = "eu-west-3"
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
-  alias  = "virginia"
+  region = "eu-west-3"
+  alias  = "paris"
 }
 
 provider "helm" {
@@ -52,7 +52,7 @@ data "aws_ecrpublic_authorization_token" "token" {
 locals {
   name            = "hss_infra"
   cluster_version = "1.29"
-  region          = "eu-west-1"
+  region          = "eu-west-2"
 
   vpc_cidr = "10.0.0.0/16"
   azs = slice(data.aws_availability_zones.available.names, 0, min(length(data.aws_availability_zones.available.names), 3))
