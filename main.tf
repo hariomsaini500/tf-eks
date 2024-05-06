@@ -2,6 +2,14 @@ provider "aws" {
   region = local.region
 }
 
+terraform {
+  backend "s3" {
+    bucket = "awseksbucket123"
+    key    = "prod/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
   alias  = "virginia"
