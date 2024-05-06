@@ -4,15 +4,15 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "europebuckettestnew"
+    bucket = "awseksbucket123"
     key    = "prod/terraform.tfstate"
-    region = "eu-west-3"
+    region = "us-east-1"
   }
 }
 
 provider "aws" {
-  region = "eu-west-3"
-  alias  = "paris"
+  region = "us-east-1"
+  alias  = "virginia"
 }
 
 provider "helm" {
